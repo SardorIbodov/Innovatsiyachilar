@@ -8,7 +8,7 @@ const Header = () => {
   const selectComponent = location.pathname === "/admission";
   // console.log(selectComponent);
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-end">
       {selectComponent && <Profile />}
     </div>
   );

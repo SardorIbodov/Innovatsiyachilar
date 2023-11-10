@@ -1,94 +1,117 @@
-import React, { useState } from "react";
-import { Button, message, Steps, theme } from "antd";
-import Content1 from "../components/step_contents/Content1";
-import Content2 from "../components/step_contents/Content2";
-import Content3 from "../components/step_contents/Content3";
-import "./custom.css";
-import Content4 from "../components/step_contents/Content4";
+import React from "react";
+import { Button, Form, Input } from "antd";
 
-const steps = [
-  {
-    title: "Ariza formasi",
-    content: <Content1 />,
-  },
-  {
-    title: "Arizalar",
-    content: <Content2 />,
-  },
-  {
-    title: "Imtixon",
-    content: <Content3 />,
-  },
-  {
-    title: "Qabul",
-    content: <Content4 />,
-  },
-];
 const Admission = () => {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
-  const [current, setCurrent] = useState(0);
-
-  const { token } = theme.useToken();
-
-  const next = () => {
-    setCurrent(current + 1);
-  };
-
-  const prev = () => {
-    setCurrent(current - 1);
-  };
-
-  const items = steps.map((item) => ({
-    key: item.title,
-    title: item.title,
-  }));
-
-  const customButtonStyle = {
-    backgroundColor: token.orange5,
-    borderColor: token.orange5,
-  };
-
   return (
-    <>
-      <Steps className="mt-5" current={current} items={items} />
-      <div>{steps[current].content}</div>
-      <div className="mt-5">
-        {isButtonClicked && (
-          <Button
-            type="primary"
-            className="custom-button"
-            style={customButtonStyle}
-            onClick={() => next()}
-          >
-            Keyingisi
-          </Button>
-        )}
-        {current === 0 && (
-          <Button
-            type="primary"
-            className="bg-green-500 custom-button2"
-            disabled={isButtonClicked}
-            onClick={() => {
-              setIsButtonClicked(true);
-              message.success("Muvaffaqiyatli Yuborildi!");
-            }}
-          >
-            Arizani Yuborish
-          </Button>
-        )}
-        {current > 0 && (
-          <Button
-            style={{
-              margin: "0 8px",
-            }}
-            onClick={() => prev()}
-            className="border-orange-400 border-2 custom-button3"
-          >
-            Oldingisi
-          </Button>
-        )}
+    <Form
+      name="wrap"
+      labelCol={{
+        flex: "110px",
+      }}
+      labelAlign="left"
+      labelWrap
+      wrapperCol={{
+        flex: 1,
+      }}
+      colon={false}
+    >
+      <div>
+        <div className="flex justify-between gap-2 mb-5">
+          <div className="w-1/2 flex flex-col gap-y-5">
+            <h1 className="font-bold text-3xl text-center">Light bulb</h1>
+            <div className="w-1/2 m-auto">
+              <Form.Item
+                name="power_bulb"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Input placeholder="Power" />
+              </Form.Item>
+              <Form.Item
+                name="count_bulb"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Input placeholder="Count" />
+              </Form.Item>
+              <Form.Item
+                name="time_bulb"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Input placeholder="Time" />
+              </Form.Item>
+            </div>
+          </div>
+          <div className="w-0.5 bg-slate-500"></div>
+          <div className="w-1/2 flex flex-col gap-y-5">
+            <h1 className="font-bold text-3xl text-center">Air conditioner</h1>
+            <div className="w-1/2 m-auto">
+              <Form.Item
+                name="power_air"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Input placeholder="Power" />
+              </Form.Item>
+              <Form.Item
+                name="count_air"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Input placeholder="Count" />
+              </Form.Item>
+              <Form.Item
+                name="time_air"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Input placeholder="Time" />
+              </Form.Item>
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+      <Form.Item label=" ">
+        <Button htmlType="submit">Submit</Button>
+      </Form.Item>
+    </Form>
   );
 };
 export default Admission;

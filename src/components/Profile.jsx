@@ -60,7 +60,7 @@ const Profile = () => {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
-          <Avatar sx={{ width: 32, height: 32 }}>{initials}</Avatar>
+          <Avatar sx={{ width: 48, height: 48 }}>{initials}</Avatar>
         </IconButton>
       </Tooltip>
       <Menu
