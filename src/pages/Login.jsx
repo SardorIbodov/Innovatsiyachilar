@@ -14,21 +14,6 @@ function Login({ setLogin }) {
   } = useForm();
   const navigate = useNavigate();
 
-  // const { mutate } = useMutation(async (payload) => {
-  //   return await API.login(payload)
-  //     .then((res) => {
-  //       if (res.status === 200) {
-  //         <Navigate replace={true} to="/admission" />;
-  //       //   window.location.reload();
-  //       }
-  //       localStorage.setItem("token", `${res.data?.token}`);
-  //       // dispatch.auth.login(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Auth dispatch  error", error);
-  //     });
-  // });
-
   const { mutate } = useMutation(async (payload) => {
     try {
       const res = await API.login(payload);
@@ -73,7 +58,7 @@ function Login({ setLogin }) {
         <Input
           placeholder="E-mail"
           {...register("email")}
-          className="md:p-2 border-orange-300 hover:border-orange-400 border-2 focus:border-orange-500"
+          className="md:p-2 "
         />
       </Form.Item>
       <Form.Item
@@ -89,11 +74,11 @@ function Login({ setLogin }) {
         <Input.Password
           placeholder="Parol"
           {...register("password")}
-          className="md:p-2  border-orange-300 hover:border-orange-400 border-2 focus:border-orange-500"
+          className="md:p-2"
         />
       </Form.Item>
       <span
-        style={{ cursor: "pointer", color: "dodgerblue" }}
+        style={{ cursor: "pointer", color: "orange" }}
         onClick={() => setLogin("kirish")}
       >
         Ro'yhatdan o'tish
@@ -101,11 +86,7 @@ function Login({ setLogin }) {
       <Form.Item>
         <Button
           htmlType="submit"
-          className="w-full active:border-none bg-orange-400 hover:border-none hover:bg-orange-500 mt-3"
-          style={{
-            color: "#fff",
-            outlineColor: "orange", 
-          }}
+          className="w-full text- text-white mt-3"
         >
           Kirish
         </Button>

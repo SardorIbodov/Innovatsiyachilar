@@ -8,8 +8,16 @@ const Home = () => {
 
   return (
     <>
-      <div className="flex items-center md:justify-between md:flex-row-reverse flex-col">
-        <div className="main__left">
+      <div className="flex items-center md:flex-row  flex-col">
+        <div className="main__left w-2/3">
+          <img
+            src="./imgs/main_img.jpg"
+            alt="Electricity Consumption main Image"
+            loading="lazy"
+            className="max-w-full object-cover h-screen"
+          />
+        </div>
+        <div className="main__right max-w-[30%] mx-auto">
           <h1 className="font-bold xl:text-[30px] lg:text-lg text-center mb-4">
             Save your💡 <br /> Electrictiy Consumption
           </h1>
@@ -18,15 +26,6 @@ const Home = () => {
           ) : (
             <SignIn setLogin={setLogin} />
           )}
-        </div>
-
-        <div className="main__right ">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1679502560137-a769caba5880?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2F2aW5nJTIwZW5lcmd5fGVufDB8fDB8fHww"
-            alt="TUIT MainGate image"
-            loading="lazy"
-            className="md:w-[400px] xl:w-full"
-          />
         </div>
       </div>
     </>

@@ -69,7 +69,7 @@ function SignIn({ setLogin }) {
             <Input
               placeholder="Username"
               {...register("full_name")}
-              className="md:p-2 border-orange-300 hover:border-orange-400 border-2 focus:border-orange-500"
+              className="md:p-2"
             />
           </Form.Item>
           <Form.Item
@@ -88,7 +88,7 @@ function SignIn({ setLogin }) {
             <Input
               placeholder="E-mail"
               {...register("email")}
-              className="md:p-2 border-orange-300 hover:border-orange-400 border-2 focus:border-orange-500"
+              className="md:p-2"
             />
           </Form.Item>
           <Form.Item
@@ -104,24 +104,17 @@ function SignIn({ setLogin }) {
             <Input.Password
               placeholder="Parol"
               {...register("password")}
-              className="md:p-2  border-orange-300 hover:border-orange-400 border-2 focus:border-orange-500"
+              className="md:p-2"
             />
           </Form.Item>
           <span
-            style={{ cursor: "pointer", color: "dodgerblue" }}
+            style={{ cursor: "pointer", color: "orange" }}
             onClick={() => setLogin("login")}
           >
             Kirish
           </span>
           <Form.Item>
-            <Button
-              htmlType="submit"
-              className="w-full active:border-none bg-orange-400 hover:border-none hover:bg-orange-500 mt-3"
-              style={{
-                color: "#fff",
-                outlineColor: "orange",
-              }}
-            >
+            <Button htmlType="submit" className="w-full mt-3">
               Ro'yxatdan o'tish
             </Button>
           </Form.Item>
