@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import RootLayout from "../layout/RootLayout";
 import { useEffect, useState } from "react";
 import Details from "../pages/Details";
+import Results from "../pages/Results";
 
 function Router() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -25,6 +26,15 @@ function Router() {
             element: (
               <RootLayout>
                 <Details />
+              </RootLayout>
+            ),
+          },
+
+          {
+            path: "/results",
+            element: (
+              <RootLayout>
+                <Results />
               </RootLayout>
             ),
           },

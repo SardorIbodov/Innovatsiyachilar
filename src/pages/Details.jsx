@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, message, Select } from "antd";
 import { useNavigate } from "react-router-dom";
-import airConditioner from "../assests/air-conditioner.png";
-import lightBulb from "../assests/light-bulb.png";
+// import airConditioner from "../assests/air-conditioner.png";
+// import lightBulb from "../assests/light-bulb.png";
 import { BASE_URL } from "../react-query/query";
 
 const Details = () => {
@@ -64,8 +64,8 @@ const Details = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        navigate("/results");
+        success();
+        navigate("/results", { replace: true });
       })
       .catch(() => error2());
   };

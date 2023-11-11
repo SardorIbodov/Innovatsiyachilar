@@ -14,9 +14,9 @@ const AuthProvider = ({ children }) => {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => {
-            if (window.location.pathname != "/details") {
-              window.location.pathname = "/details";
-            }
+            // if (window.location.pathname != "/details") {
+            //   window.location.pathname = "/details";
+            // }
             setIsInitilized(true);
           })
           .catch((err) => {

@@ -18,7 +18,6 @@ function Login({ setLogin }) {
     try {
       const res = await API.login(payload);
       if (res.status === 200) {
-      
         navigate("/details", { replace: true });
         window.location.reload();
         localStorage.setItem("token", res.data?.token);
