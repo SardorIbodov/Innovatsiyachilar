@@ -37,11 +37,7 @@ function Login({ setLogin }) {
   };
 
   return (
-    <Form
-      className="flex flex-col text-md"
-      onFinish={onSubmit}
-      autoComplete="on"
-    >
+    <Form className="flex flex-col" onFinish={onSubmit} autoComplete="on">
       <Form.Item
         name="email"
         rules={[
@@ -58,11 +54,12 @@ function Login({ setLogin }) {
         <Input
           placeholder="E-mail"
           {...register("email")}
-          className="md:p-2 "
+          className="md:p-2 bg-transparent"
+          style={{ color: "white" }}
         />
       </Form.Item>
       <Form.Item
-        className="mb-1 "
+        className="mb-1 bg-none"
         name="password"
         rules={[
           {
@@ -72,23 +69,20 @@ function Login({ setLogin }) {
         ]}
       >
         <Input.Password
-          placeholder="Parol"
+          placeholder="Password"
           {...register("password")}
-          className="md:p-2"
+          className="md:p-2 bg-transparent  custom-bg"
         />
       </Form.Item>
       <span
         style={{ cursor: "pointer", color: "orange" }}
         onClick={() => setLogin("kirish")}
       >
-        Ro'yhatdan o'tish
+        Sign Up
       </span>
       <Form.Item>
-        <Button
-          htmlType="submit"
-          className="w-full text- text-white mt-3"
-        >
-          Kirish
+        <Button htmlType="submit" className="w-full text-white mt-3">
+          Sign in
         </Button>
       </Form.Item>
     </Form>

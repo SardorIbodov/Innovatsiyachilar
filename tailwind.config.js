@@ -13,6 +13,9 @@ export default {
         xl: "1024px",
         "2xl": "1440px",
       },
+      zIndex: {
+        "-10": "-10",
+      },
     },
   },
   plugins: [],
