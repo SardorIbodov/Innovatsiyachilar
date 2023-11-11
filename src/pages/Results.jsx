@@ -1,6 +1,9 @@
 import React from "react";
+import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const Results = () => {
+	const navigate = useNavigate();
   return (
     <div className="py-4">
       <h2 className="text-center font-bold text-4xl">You spendings:</h2>
@@ -50,6 +53,9 @@ const Results = () => {
         <h3 className="my-4 text-center font-semibold text-2xl">
           <span className="font-bold text-4xl">...$</span> in 10 years
         </h3>
+      </div>
+      <div className="flex justify-center">
+        <Button onClick={() => navigate("/details")}>Back to details</Button>
       </div>
     </div>
   );
