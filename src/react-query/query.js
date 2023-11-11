@@ -1,18 +1,15 @@
 import axios from "axios";
-export const BASE_URL = "https://api.ssv-n1.uz/v1";
+export const BASE_URL = "https://api.inno.ustadev.uz/v1";
 const axiosInstance = axios;
 axiosInstance.defaults.baseURL = BASE_URL;
-
+// https://api.ssv-n1.uz/v1
 axiosInstance.interceptors.request.use(
   async (config) => {
     if (!config.headers.Authorization) {
       const token = localStorage.getItem("token");
-
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       } else {
-        // Handle the case where the token is not present
-        // You might want to redirect the user to the login page or take appropriate action
         console.error("Token is missing");
       }
     }

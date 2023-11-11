@@ -37,6 +37,7 @@ function SignIn({ setLogin }) {
   const { mutate: smsCodeVerfiy } = useMutation(async (payload) => {
     return await API.smsCodeVerify(payload)
       .then((res) => {
+        console.log(res);
         localStorage.setItem("token", `${res.data?.token}`);
         navigate("/details");
         window.location.reload();
