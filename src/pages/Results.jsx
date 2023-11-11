@@ -16,6 +16,15 @@ const Results = () => {
       .then((res) => {
         console.log(res);
       });
+      // index
+    fetch(`${BASE_URL}/user/technical/index`, {
+      headers: { Authorization: ` Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.result[0]);
+    
+      });
   }, [params.id]);
 
   return (
