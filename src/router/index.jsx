@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import RootLayout from "../layout/RootLayout";
-import Admission from "../pages/Amission";
 import { useEffect, useState } from "react";
+import Details from "../pages/Details";
 
 function Router() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -21,10 +21,10 @@ function Router() {
     token
       ? [
           {
-            path: "/admission",
+            path: "/details",
             element: (
               <RootLayout>
-                <Admission />
+                <Details />
               </RootLayout>
             ),
           },

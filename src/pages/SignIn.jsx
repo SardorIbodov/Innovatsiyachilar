@@ -37,8 +37,7 @@ function SignIn({ setLogin }) {
     return await API.smsCodeVerify(payload)
       .then((res) => {
         localStorage.setItem("token", `${res.data?.token}`);
-        // <Navigate replace to="/admission" />;
-        navigate("/admission");
+        navigate("/details");
         window.location.reload();
       })
       .catch((error) => {

@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../react-query/query";
-// import { useNavigate } from "react-router-dom";
-// import { dispatch } from "../redux";
 import AppLoader from "./AppLoader";
 
 const AuthProvider = ({ children }) => {
@@ -16,8 +14,8 @@ const AuthProvider = ({ children }) => {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => {
-            if (window.location.pathname != "/admission") {
-              window.location.pathname = "/admission";
+            if (window.location.pathname != "/details") {
+              window.location.pathname = "/details";
             }
             console.log(res);
             console.log("email: " + res.data.email);

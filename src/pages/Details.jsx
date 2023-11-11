@@ -1,10 +1,43 @@
 import React from "react";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
+import { useNavigate } from "react-router-dom";
 
-const Admission = () => {
+const Details = () => {
+  const navigate = useNavigate();
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Succesfully sent!",
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: "Place enter valid values!",
+    });
+  };
+  const onFinish = (values) => {
+    navigate("/results");
+    // fetch("your_backend_url", {
+    //   method: "POST",
+    //   body: JSON.stringify(values),
+    // });
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   // Handle the response from the backend
+    //   console.log(data);
+    // })
+    // .catch((error) => {
+    //   // Handle errors
+    //   console.error("Error:", error);
+    // });
+  };
+  const onFinishFailed = (errorInfo) => {
+    error();
+  };
   return (
     <Form
-      name="wrap"
       labelCol={{
         flex: "110px",
       }}
@@ -14,10 +47,14 @@ const Admission = () => {
         flex: 1,
       }}
       colon={false}
+      autoComplete="on"
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
     >
+      {contextHolder}
       <div>
-        <div className="flex justify-between gap-2 mb-5">
-          <div className="w-1/2 flex flex-col gap-y-5">
+        <div className="flex flex-col md:flex-row items-center gap-y-5 md:justify-between">
+          <div className="w-full md:w-1/2 flex flex-col gap-y-5">
             <h1 className="font-bold text-3xl text-center">Light bulb</h1>
             <div className="w-1/2 m-auto">
               <Form.Item
@@ -31,7 +68,7 @@ const Admission = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Power" />
+                <Input placeholder="Power (W)" type="number" min={0} />
               </Form.Item>
               <Form.Item
                 name="count_bulb"
@@ -44,7 +81,7 @@ const Admission = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Count" />
+                <Input placeholder="Count" type="number" min={0} />
               </Form.Item>
               <Form.Item
                 name="time_bulb"
@@ -57,12 +94,12 @@ const Admission = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Time" />
+                <Input placeholder="Time (in hours)" type="number" min={0} />
               </Form.Item>
             </div>
           </div>
-          <div className="w-0.5 bg-slate-500"></div>
-          <div className="w-1/2 flex flex-col gap-y-5">
+          <div className="h-0.5 w-1/2 md:w-0.5 md:h-0 bg-slate-500"></div>
+          <div className="w-full md:w-1/2 flex flex-col gap-y-5">
             <h1 className="font-bold text-3xl text-center">Air conditioner</h1>
             <div className="w-1/2 m-auto">
               <Form.Item
@@ -76,7 +113,7 @@ const Admission = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Power" />
+                <Input placeholder="Power (W)" type="number" min={0} />
               </Form.Item>
               <Form.Item
                 name="count_air"
@@ -89,7 +126,7 @@ const Admission = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Count" />
+                <Input placeholder="Count" type="number" min={0} />
               </Form.Item>
               <Form.Item
                 name="time_air"
@@ -102,16 +139,18 @@ const Admission = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Time" />
+                <Input placeholder="Time (in hours)" type="number" min={0} />
               </Form.Item>
             </div>
           </div>
         </div>
+        <Form.Item label=" " className="flex justify-center">
+          <Button htmlType="submit" size="large">
+            Submit
+          </Button>
+        </Form.Item>
       </div>
-      <Form.Item label=" ">
-        <Button htmlType="submit">Submit</Button>
-      </Form.Item>
     </Form>
   );
 };
-export default Admission;
+export default Details;

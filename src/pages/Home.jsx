@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Login from "./Login";
 import SignIn from "./SignIn";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   const [login, setLogin] = useState("login");

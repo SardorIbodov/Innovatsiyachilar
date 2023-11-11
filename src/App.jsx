@@ -1,14 +1,9 @@
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RootLayout from "./layout/RootLayout";
-import Admission from "./pages/Amission";
+import Details from "./pages/Details";
 import Home from "./pages/Home";
+import Results from "./pages/Results";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -28,10 +23,18 @@ function App() {
       <Routes>
         {/* {token ? ( */}
         <Route
-          path="/admission"
+          path="/details"
           element={
             <RootLayout>
-              <Admission />
+              <Details />
+            </RootLayout>
+          }
+        />
+        <Route
+          path="/results"
+          element={
+            <RootLayout>
+              <Results />
             </RootLayout>
           }
         />

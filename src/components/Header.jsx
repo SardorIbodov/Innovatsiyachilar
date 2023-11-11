@@ -1,12 +1,8 @@
-import { Select } from "antd";
-import { Link, useLocation } from "react-router-dom";
-import { UserOutlined } from "@ant-design/icons";
-import { Avatar } from "antd";
+import { useLocation } from "react-router-dom";
 import Profile from "../components/Profile";
 const Header = () => {
   const location = useLocation();
-  const selectComponent = location.pathname === "/admission";
-  // console.log(selectComponent);
+  const selectComponent = location.pathname === "/details";
   return (
     <div className="flex items-center justify-end">
       {selectComponent && <Profile />}

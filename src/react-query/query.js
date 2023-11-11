@@ -3,20 +3,6 @@ export const BASE_URL = "https://api.ssv-n1.uz/v1";
 const axiosInstance = axios;
 axiosInstance.defaults.baseURL = BASE_URL;
 
-// axiosInstance.interceptors.request.use(
-//   async (config) => {
-//     if (!config.headers.Authorization) {
-//       const token = localStorage.getItem("token");
-
-//       if (token) {
-//         config.headers.Authorization = token;
-//       }
-//     }
-//     return config;
-//   },
-//   (error) => Promise.reject(error)
-// );
-
 axiosInstance.interceptors.request.use(
   async (config) => {
     if (!config.headers.Authorization) {
