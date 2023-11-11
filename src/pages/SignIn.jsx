@@ -8,6 +8,7 @@ import { dispatch } from "../redux";
 import { useState } from "react";
 import ReactInputVerificationCode from "react-input-verification-code";
 import { toast } from "react-toastify";
+import "./custom.css";
 
 function SignIn({ setLogin }) {
   const navigate = useNavigate();
@@ -68,7 +69,8 @@ function SignIn({ setLogin }) {
             <Input
               placeholder="Username"
               {...register("full_name")}
-              className="md:p-2"
+              className="md:p-2  bg-transparent"
+              style={{ color: "white" }}
             />
           </Form.Item>
           <Form.Item
@@ -87,7 +89,8 @@ function SignIn({ setLogin }) {
             <Input
               placeholder="E-mail"
               {...register("email")}
-              className="md:p-2"
+              className="md:p-2 bg-transparent"
+              style={{ color: "white" }}
             />
           </Form.Item>
           <Form.Item
@@ -103,34 +106,31 @@ function SignIn({ setLogin }) {
             <Input.Password
               placeholder="Parol"
               {...register("password")}
-              className="md:p-2"
+              className="md:p-2 bg-transparent  custom-bg"
             />
           </Form.Item>
           <span
             style={{ cursor: "pointer", color: "orange" }}
             onClick={() => setLogin("login")}
           >
-            Kirish
+           Sign In 
           </span>
           <Form.Item>
-            <Button htmlType="submit" className="w-full mt-3">
-              Ro'yxatdan o'tish
+            <Button htmlType="submit" className="w-full text-white mt-3">
+             Sign Up
             </Button>
           </Form.Item>
         </Form>
       ) : (
         <Form
           autoComplete="on"
-          className="flex flex-col text-md"
+          className="flex flex-col  text-md"
           onFinish={onSubmitSms}
         >
           <ReactInputVerificationCode length={6} onChange={setCode} />
-          <Form.Item className="p-3">
-            <Button
-              htmlType="submit"
-              className="w-full  active:border-none focus:border-orange-400 bg-orange-400 text-white hover:border-none hover:bg-orange-500 "
-            >
-              Tasdiqlash
+          <Form.Item>
+            <Button htmlType="submit" className=" text-white mt-4 mx-auto">
+              Confirm
             </Button>
           </Form.Item>
         </Form>

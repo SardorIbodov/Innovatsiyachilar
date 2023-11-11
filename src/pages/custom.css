@@ -1,9 +1,42 @@
-.custom-button:hover {
-  background-color: #ffa500;
-  border-color: #ffa500;
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
 }
 
-.custom-button:active {
-  background-color: #cea861;
-  border-color: #cea861;
+.video-background video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -5;
+}
+
+.content {
+  z-index: 10;
+}
+
+.custom-bg .ant-input {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+::-webkit-input-placeholder {
+  color: white !important;
+}
+
+.custom-bg .anticon {
+  color: white !important;
 }

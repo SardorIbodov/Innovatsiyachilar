@@ -1,25 +1,25 @@
 import { useState } from "react";
 import Login from "./Login";
 import SignIn from "./SignIn";
+import { Link } from "react-router-dom";
+import "./custom.css";
 
 const Home = () => {
   const [login, setLogin] = useState("login");
 
   return (
     <>
-      <div className="flex items-center md:flex-row  flex-col">
-        <div className="main__left w-2/3">
-          <img
-            src="./imgs/main_img.jpg"
-            alt="Electricity Consumption main Image"
-            loading="lazy"
-            className="max-w-full object-cover h-screen"
-          />
-        </div>
-        <div className="main__right max-w-[30%] mx-auto">
-          <h1 className="font-bold xl:text-[30px] lg:text-lg text-center mb-4">
-            Save your💡 <br /> Electrictiy Consumption
-          </h1>
+      <div className="video-background">
+        <video autoPlay loop muted preload="auto">
+          <source src="bg_video.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="overlay"></div>
+      <div className="content h-screen pl-10 flex flex-col justify-center items-end mx-auto max-w-[40%]">
+        <h1 className="font-bold xl:text-[30px] lg:text-lg text-center mb-4 text-white">
+          Illuminate Your Life, <br /> Conserve Our Planet
+        </h1>
+        <div className="w-1/2">
           {login === "login" ? (
             <Login setLogin={setLogin} />
           ) : (
