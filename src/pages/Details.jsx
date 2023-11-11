@@ -27,7 +27,7 @@ const Details = () => {
   };
 
   const onFinish = (values) => {
-    navigate("/results");
+    // navigate("/results");
     // fetch("your_backend_url", {
     //   method: "POST",
     //   body: JSON.stringify(values),
@@ -41,16 +41,17 @@ const Details = () => {
     //   // Handle errors
     //   console.error("Error:", error);
     // });
-    console.log(
-      `${getTotalSum(
-        values.power_bulb,
-        values.time_bulb,
-        values.count_bulb
-      )} so'm kuniga ishlatiladi`
-    );
-    console.log(
-      `${getProfit(values.power_bulb, values.count_bulb)} so'm kuniga tejaladi`
-    );
+    // console.log(
+    //   `${getTotalSum(
+    //     values.power_bulb,
+    //     values.time_bulb,
+    //     values.count_bulb
+    //   )} so'm kuniga ishlatiladi`
+    // );
+    // console.log(
+    //   `${getProfit(values.power_bulb, values.count_bulb)} so'm kuniga tejaladi`
+    // );
+		console.log(JSON.stringify(values));
   };
   const onFinishFailed = (errorInfo) => {
     error();
