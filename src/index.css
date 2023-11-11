@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 .gkVVXq {
   width: 60px !important;
@@ -16,12 +16,6 @@
   margin-right: 15px;
 }
 
-/* .custom-button:hover {
-  background-color: #ffa500 !important;
-}
-.custom-button:active {
-  background-color: #cea861 !important;
-} */
 .custom-button2:hover {
   background-color: #42e280 !important;
 }
@@ -39,6 +33,6 @@
 }
 
 .ant-steps-item-icon {
-  background-color: #ffa500!important;
-  border-color: #ffa500!important;
+  background-color: #ffa500 !important;
+  border-color: #ffa500 !important;
 }
