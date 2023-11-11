@@ -4,7 +4,7 @@ const Header = () => {
   const location = useLocation();
   const selectComponent = location.pathname === "/details";
   return (
-    <div className="flex items-center justify-end">
+    <div className="flex items-center justify-end px-10 py-4">
       {selectComponent && <Profile />}
     </div>
   );

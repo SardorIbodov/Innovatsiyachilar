@@ -68,7 +68,12 @@ const Details = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Power (W)" type="number" min={0} />
+                <Input
+                  className="custom-input"
+                  placeholder="Power (W)"
+                  type="number"
+                  min={0}
+                />
               </Form.Item>
               <Form.Item
                 name="count_bulb"
@@ -81,7 +86,12 @@ const Details = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Count" type="number" min={0} />
+                <Input
+                  className="custom-input"
+                  placeholder="Count"
+                  type="number"
+                  min={0}
+                />
               </Form.Item>
               <Form.Item
                 name="time_bulb"
@@ -94,7 +104,12 @@ const Details = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Time (in hours)" type="number" min={0} />
+                <Input
+                  className="custom-input"
+                  placeholder="Time (in hours)"
+                  type="number"
+                  min={0}
+                />
               </Form.Item>
             </div>
           </div>
@@ -113,7 +128,12 @@ const Details = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Power (W)" type="number" min={0} />
+                <Input
+                  className="custom-input"
+                  placeholder="Power (W)"
+                  type="number"
+                  min={0}
+                />
               </Form.Item>
               <Form.Item
                 name="count_air"
@@ -126,7 +146,12 @@ const Details = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Count" type="number" min={0} />
+                <Input
+                  className="custom-input"
+                  placeholder="Count"
+                  type="number"
+                  min={0}
+                />
               </Form.Item>
               <Form.Item
                 name="time_air"
@@ -139,7 +164,12 @@ const Details = () => {
                   flex: "60px",
                 }}
               >
-                <Input placeholder="Time (in hours)" type="number" min={0} />
+                <Input
+                  className="custom-input"
+                  placeholder="Time (in hours)"
+                  type="number"
+                  min={0}
+                />
               </Form.Item>
             </div>
           </div>
