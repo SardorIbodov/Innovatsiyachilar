@@ -43,7 +43,6 @@ const Profile = () => {
     .map((word, index) => (index === 0 ? word[0].toUpperCase() : ""))
     .join("");
 
-  console.log(initials);
   return (
     <div>
       <Tooltip title="My account">
