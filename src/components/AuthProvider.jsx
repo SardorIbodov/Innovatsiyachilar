@@ -17,9 +17,9 @@ const AuthProvider = ({ children }) => {
             if (window.location.pathname != "/details") {
               window.location.pathname = "/details";
             }
-            console.log(res);
-            console.log("email: " + res.data.email);
-            console.log("username: " + res.data.full_name);
+            // console.log(res);
+            // console.log("email: " + res.data.email);
+            // console.log("username: " + res.data.full_name);
             setIsInitilized(true);
           })
           .catch((err) => {
