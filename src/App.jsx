@@ -31,7 +31,7 @@ function App() {
           }
         />
         <Route
-          path="/results"
+          path="/results/:id"
           element={
             <RootLayout>
               <Results />

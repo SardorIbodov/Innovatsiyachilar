@@ -65,7 +65,8 @@ const Details = () => {
       .then((res) => res.json())
       .then((res) => {
         success();
-        navigate("/results", { replace: true });
+        console.log(res);
+        navigate(`/results/${res.id}`, { replace: true });
       })
       .catch(() => error2());
   };

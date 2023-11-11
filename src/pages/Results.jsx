@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
 import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../react-query/query";
 
 const Results = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
-
+  const params = useParams();
+  console.log(params);
   useEffect(() => {
-    fetch(`${BASE_URL}/user/technical/index`, {
+    fetch(`${BASE_URL}/user/technical/view?id=${params.id}`, {
       headers: { Authorization: ` Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
       });
-  }, []);
+  }, [params.id]);
 
   return (
     <div className="py-4">
