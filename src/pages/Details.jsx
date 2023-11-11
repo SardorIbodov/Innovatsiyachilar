@@ -170,7 +170,7 @@ const Details = () => {
                   className="custom-input"
                   placeholder="Time (in hours)"
                   type="number"
-                  min={0}
+                  min={3}
                   max={24}
                 />
               </Form.Item>
