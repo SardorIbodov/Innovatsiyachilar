@@ -1,10 +1,29 @@
-import React from "react";
-import { Button, Form, Input, message } from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Form, Input, message, Select } from "antd";
 import { useNavigate } from "react-router-dom";
 import airConditioner from "../assests/air-conditioner.png";
 import lightBulb from "../assests/light-bulb.png";
+import { BASE_URL } from "../react-query/query";
 
 const Details = () => {
+  const [types, setTypes] = useState([]);
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    fetch(`${BASE_URL}/user/category/index`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((res) => setTypes(res.result));
+  }, []);
+
+  const prepareType = (types) => {
+    let result = [];
+    result = types.map((object) => {
+      return { label: object.name, value: object.name };
+    });
+    return result;
+  };
+
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const success = () => {
@@ -18,12 +37,6 @@ const Details = () => {
       type: "error",
       content: "Place enter valid values!",
     });
-  };
-  const getTotalSum = (power, time, count) => {
-    return (power / 1000) * time * count * 295;
-  };
-  const getProfit = (power, count) => {
-    return (power / 1000) * 2 * count * 295;
   };
 
   const onFinish = (values) => {
@@ -51,10 +64,13 @@ const Details = () => {
     // console.log(
     //   `${getProfit(values.power_bulb, values.count_bulb)} so'm kuniga tejaladi`
     // );
-		console.log(JSON.stringify(values));
+    console.log(JSON.stringify(values));
   };
   const onFinishFailed = (errorInfo) => {
     error();
+  };
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
   };
   return (
     <Form
@@ -74,19 +90,38 @@ const Details = () => {
       {contextHolder}
       <div>
         <h1 className="text-center font-bold text-3xl mb-4">
-          Enter your data:
+          Add your device:
         </h1>
-        <div className="flex flex-col md:flex-row items-center gap-y-5 md:justify-between">
+        <div className="flex justify-center">
           <div className="w-full md:w-1/2 flex flex-col gap-y-5">
-            <img
+            {/* <img
               src={lightBulb}
               style={{ width: "100px", height: "100px", margin: "0 auto" }}
               alt=""
-            />
-            <h1 className="font-bold text-3xl text-center">Light bulb</h1>
-            <div className="w-1/2 m-auto">
+            /> */}
+            <div className="w-1/2 m-auto flex flex-col mt-6">
               <Form.Item
-                name="power_bulb"
+                name="type"
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                labelCol={{
+                  flex: "60px",
+                }}
+              >
+                <Select
+                  placeholder="Select device"
+                  style={{
+                    width: "100%",
+                  }}
+                  onChange={handleChange}
+                  options={prepareType(types)}
+                />
+              </Form.Item>
+              <Form.Item
+                name="power"
                 rules={[
                   {
                     required: true,
@@ -104,7 +139,7 @@ const Details = () => {
                 />
               </Form.Item>
               <Form.Item
-                name="count_bulb"
+                name="count"
                 rules={[
                   {
                     required: true,
@@ -122,7 +157,7 @@ const Details = () => {
                 />
               </Form.Item>
               <Form.Item
-                name="time_bulb"
+                name="time"
                 rules={[
                   {
                     required: true,
@@ -142,8 +177,7 @@ const Details = () => {
               </Form.Item>
             </div>
           </div>
-          <div className="h-0.5 w-1/2 md:w-0.5 md:h-0 bg-slate-500"></div>
-          <div className="w-full md:w-1/2 flex flex-col gap-y-5">
+          {/* <div className="w-full md:w-1/2 flex flex-col gap-y-5">
             <img
               src={airConditioner}
               style={{ width: "100px", height: "100px", margin: "0 auto" }}
@@ -207,7 +241,7 @@ const Details = () => {
                 />
               </Form.Item>
             </div>
-          </div>
+          </div> */}
         </div>
         <Form.Item label=" " className="flex justify-center">
           <Button htmlType="submit" size="large">
