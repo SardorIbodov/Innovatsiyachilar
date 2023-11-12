@@ -14,7 +14,6 @@ const Home = () => {
           <source src="bg_video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="overlay"></div>
       <div className="content h-screen pl-10 flex flex-col justify-center items-end mx-auto max-w-[40%]">
         <h1 className="font-bold font-Roboto md:text-[30px] leading-2 text-center mb-4 text-white">
           Illuminate Your Life, <br /> Conserve Our Planet
