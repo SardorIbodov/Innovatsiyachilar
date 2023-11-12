@@ -58,7 +58,7 @@ const Results = () => {
               on light bulbs
             </h3>
             <h3 className="font-semibold">
-              In a week you spend: 
+              In a week you spend:
               <span className="font-bold">
                 {parseInt(data?.your?.one_week)} sum
               </span>{" "}
@@ -85,11 +85,12 @@ const Results = () => {
         <h2 className="text-center font-bold text-2xl">
           If you use our technology you will save:
         </h2>
-				<h3 className="my-4 text-center font-semibold text-xl">
+        <h3 className="my-4 text-center font-semibold text-xl">
           <span className="font-bold text-2xl">
-            {parseInt(data?.your?.one_month - data?.we_calculate?.one_month)} sum
+            {parseInt(data?.your?.one_month - data?.we_calculate?.one_month)}{" "}
+            sum
           </span>{" "}
-          in 10 years
+          in a month
         </h3>
         <h3 className="my-4 text-center font-semibold text-xl">
           <span className="font-bold text-2xl">
