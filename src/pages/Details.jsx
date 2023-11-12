@@ -36,7 +36,7 @@ const Details = () => {
   const error = () => {
     messageApi.open({
       type: "error",
-      content: "Place enter valid values!",
+      content: "Please, enter valid values!",
     });
   };
   const error2 = () => {

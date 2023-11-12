@@ -8,6 +8,7 @@ const Results = () => {
   const token = localStorage.getItem("token");
   const params = useParams();
   const [data, setData] = useState({});
+
   useEffect(() => {
     fetch(`${BASE_URL}/user/technical/view?id=${params.id}`, {
       headers: { Authorization: ` Bearer ${token}` },
@@ -27,49 +28,60 @@ const Results = () => {
   }, [params.id]);
 
   return (
-    <div className="py-4">
-      <h2 className="text-center font-bold text-4xl">Your devices</h2>
-      <div className="my-12 flex flex-col gap-y-5">
-        <h3 className="text-center">Count of lamps: {data?.count} </h3>
-        <h3 className="text-center">Power of lamps: {data?.power} Watt</h3>
-        <h3 className="text-center">Time: {data?.time} hours</h3>
-      </div>
-      <hr />
-      <h2 className="text-center font-bold text-4xl my-4">Your spendings:</h2>
-      <div className="my-12 flex justify-center gap-x-32">
-        <div>
-          <h3 className="font-semibold">
-            Daily you spend{" "}
-            <span className="font-bold">
-              {parseInt(data?.your?.one_day)} sum
-            </span>{" "}
-            on light bulps
+    <div className="">
+      <div className="p-4 shadow-lg w-1/2 mx-auto bg-orange-200">
+        <h2 className="text-center font-bold text-4xl">Devices in your home</h2>
+        <h3 className="font-bold text-2xl text-center my-3">
+          {data?.category_id == 1 ? "Lights" : "Air Conditioner"}
+        </h3>
+        <div className="flex flex-col gap-y-5 text-[25px] text-center">
+          <h3>
+            Count: <span className="font-bold">{data?.count}</span>
           </h3>
-          <h3 className="font-semibold">
-            In a week you spend{" "}
-            <span className="font-bold">
-              {parseInt(data?.your?.one_week)} sum
-            </span>{" "}
-            on light bulps
+          <h3>
+            Power: <span className="font-bold">{data?.power} Watts</span>
           </h3>
-          <h3 className="font-semibold">
-            In a month you spend{" "}
-            <span className="font-bold">
-              {parseInt(data?.your?.one_month)} sum
-            </span>{" "}
-            on light bulps
-          </h3>
-          <h3 className="font-semibold">
-            In a year you spend{" "}
-            <span className="font-bold">
-              {parseInt(data?.your?.one_year)} sum
-            </span>{" "}
-            on light bulps
+          <h3>
+            Time per day: <span className="font-bold">{data?.time} hours</span>
           </h3>
         </div>
       </div>
-      <hr />
-      <div className="py-4">
+      <div className="p-4 mt-3 shadow-lg w-1/2 mx-auto bg-red-200">
+        <h2 className="text-center font-bold text-4xl ">Your Expenses:</h2>
+        <div className="mt-3 flex justify-center gap-x-32">
+          <div>
+            <h3 className="font-semibold">
+              Daily you spend
+              <span className="font-bold">
+                {parseInt(data?.your?.one_day)} sum
+              </span>{" "}
+              on light bulbs
+            </h3>
+            <h3 className="font-semibold">
+              In a week you spend
+              <span className="font-bold">
+                {parseInt(data?.your?.one_week)} sum
+              </span>{" "}
+              on light bulbs
+            </h3>
+            <h3 className="font-semibold">
+              In a month you spend
+              <span className="font-bold">
+                {parseInt(data?.your?.one_month)} sum
+              </span>{" "}
+              on light bulbs
+            </h3>
+            <h3 className="font-semibold">
+              In a year you spend
+              <span className="font-bold">
+                {parseInt(data?.your?.one_year)} sum
+              </span>{" "}
+              on light bulbs
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div className="p-4  mt-3 shadow-lg w-1/2 mx-auto bg-green-200">
         <h2 className="text-center font-bold text-3xl">
           If you use our technology you will save:
         </h2>
@@ -80,8 +92,8 @@ const Results = () => {
           in 10 years
         </h3>
       </div>
-      <div className="flex justify-center">
-        <Button onClick={() => navigate("/details")}>Back to details</Button>
+      <div className="flex justify-center mt-3 absolute left-4">
+        <Button onClick={() => navigate("/details")} className="bg-blue-600 text-white">Back to details</Button>
       </div>
     </div>
   );
