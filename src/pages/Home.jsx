@@ -14,16 +14,18 @@ const Home = () => {
           <source src="bg_video.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="content h-screen pl-10 flex flex-col justify-center items-end mx-auto max-w-[40%]">
-        <h1 className="font-bold font-Roboto md:text-[30px] leading-2 text-center mb-4 text-white">
-          Illuminate Your Life, <br /> Conserve Our Planet
-        </h1>
-        <div className="w-1/2">
-          {login === "login" ? (
-            <Login setLogin={setLogin} />
-          ) : (
-            <SignIn setLogin={setLogin} />
-          )}
+      <div className="absolute inset-0 flex flex-col items-end justify-center">
+        <div className="w-2/5 flex flex-col justify-start">
+          <h1 className="font-bold font-Roboto md:text-[30px] mb-4 text-white">
+            Illuminate Your Life, <br /> Conserve Our Planet
+          </h1>
+          <div className="w-1/2">
+            {login === "login" ? (
+              <Login setLogin={setLogin} />
+            ) : (
+              <SignIn setLogin={setLogin} />
+            )}
+          </div>
         </div>
       </div>
     </>
